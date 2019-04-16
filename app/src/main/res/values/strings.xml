@@ -10,4 +10,5 @@
 
     <string name="weather_key">fb6e08e3-0308-4c55-a1c2-eb4c39ca0265</string>
     <string name="weather_key_2">0edf62ab-25bb-4c90-a424-f56fbe95ba5a</string>
+    <string name="comment_hint">댓글을 작성해주세요.</string>
 </resources>

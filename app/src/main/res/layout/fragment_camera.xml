@@ -3,13 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_200"
+    android:background="@color/background"
     tools:context=".fragments.CameraFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/camera_show_image"
+            android:src="@drawable/no_image"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/camera_gallery_btn"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
+                android:backgroundTint="@color/green_600"
+                android:drawableLeft="@drawable/ic_image_black_24dp"
+                android:text="Gallery"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/camera_camera_btn"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
+                android:backgroundTint="@color/green_600"
+                android:drawableLeft="@drawable/ic_camera_black_24dp"
+                android:text="Camera"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hch.hooney.mysmallinstaproject">
-
     <!-- Network Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Read Store Permission -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera" android:required="false"/>
 
-    <!-- MyApp.MyApplication Name 지정 -->
     <application
         android:name=".MyApp.MyApplication"
         android:allowBackup="true"
@@ -13,7 +17,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionbar">
+        <activity
+            android:theme="@style/AppTheme"
+            android:name=".CommentActivity">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
