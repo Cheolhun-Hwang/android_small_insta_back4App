@@ -44,6 +44,17 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/send_post"
+            android:textColor="@color/white"
+            android:drawableTint="@color/white"
+            android:backgroundTint="@color/green_600"
+            android:drawableLeft="@drawable/ic_cloud_upload_black_24dp"
+            android:text="Post Upload"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </FrameLayout>

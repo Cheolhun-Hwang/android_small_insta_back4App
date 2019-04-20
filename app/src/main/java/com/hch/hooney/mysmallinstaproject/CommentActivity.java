@@ -2,6 +2,7 @@ package com.hch.hooney.mysmallinstaproject;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
@@ -23,6 +24,7 @@ import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
 import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -87,8 +89,9 @@ public class CommentActivity extends AppCompatActivity {
                     ParseObject entity = new ParseObject("comments");
                     entity.put("username", "Temp User");
                     entity.put("to", uuid);
-                    entity.put("ava", new ParseFile("guest_ava_img.jpeg", drawableToByteArrayAVA()));
+                    entity.put("ava", new ParseFile("guest_ava_img.jpg", drawableToByteArrayAVA()));
                     entity.put("comment", editText.getText().toString());
+                    editText.setText("");
                     entity.saveInBackground(new SaveCallback() {
                         @Override
                         public void done(ParseException e) {
@@ -106,11 +109,21 @@ public class CommentActivity extends AppCompatActivity {
     }
 
     private byte[] drawableToByteArrayAVA( ) {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_account_circle_black_24dp);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream() ;
-        bitmap.compress( Bitmap.CompressFormat.JPEG, 100, stream) ;
-        byte[] byteArray = stream.toByteArray() ;
-        return byteArray ;
+        Bitmap bitmap = null;
+        Drawable drawable = getResources().getDrawable(R.drawable.no_user, null);
+        if(drawable instanceof BitmapDrawable){
+            bitmap = ((BitmapDrawable)drawable).getBitmap();
+        }else{
+            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+        }
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte[] bytes = stream.toByteArray();
+        return bytes;
     }
 
     private void getCommentsData() {

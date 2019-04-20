@@ -72,7 +72,7 @@ public class FavoriteFragment extends Fragment {
             }
         }else{
             //Commit Permission
-            new PermilssionPack().commitPermission(FavoriteFragment.this, signal, ps);
+            new PermissionPack().commitPermission(FavoriteFragment.this, signal, ps);
         }
     }
 

@@ -52,7 +52,7 @@ public class CommentsAdapter extends RecyclerView.Adapter {
             if(pic_ava != null){
                 Glide.with(context).load(pic_ava.getUrl()).into(hold.user_image);
             }else{
-                hold.user_image.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_account_circle_black_24dp, null));
+                hold.user_image.setImageDrawable(context.getResources().getDrawable(R.drawable.no_user, null));
             }
 
             hold.msg.setText(item.getString("comment"));
